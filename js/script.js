@@ -2,75 +2,33 @@
 // in cui ogni cella contiene un numero tra quelli compresi in un range:
 
 // con difficoltà 1 => tra 1 e 100
-const grigliaCampoMinato = document.getElementById('griglia');
-
-const elementi = () => {
-    const node = document.createElement('div')
-    node.className = 'square';
-    return node;
-}
-
-const tasto = document.getElementById('griglia');
-
-for (let i = 1; i < 100; i++){
-    const divElement = elementi();
-
-    divElement.addEventListener('click',
-
-    function(){
-        console.log(this);
-        this.classList.add("clicked");
-    }
-    )
-    grigliaCampoMinato.append(divElement);
-}
-
-
+const livelloFacile = document.getElementById("primoLivello");
+livelloFacile.addEventListener("click",() => creagriglia(100, "size-uno"));
 
 // con difficoltà 2 => tra 1 e 81
-const grigliaCampoMinato = document.getElementById('griglia');
-
-const elementi = () => {
-    const node = document.createElement('div')
-    node.className = 'square';
-    return node;
-}
-
-const tasto = document.getElementById('griglia');
-
-for (let i = 1; i < 81; i++){
-    const divElement = elementi();
-
-    divElement.addEventListener('click',
-
-    function(){
-        console.log(this);
-        this.classList.add("clicked");
-    }
-    )
-    grigliaCampoMinato.append(divElement);
-}
+const livelloIntermedio = document.getElementById("secondoLivello");
+livelloIntermedio.addEventListener("click",() => creagriglia(81, "size-due"));
 
 // con difficoltà 3 => tra 1 e 49
-const grigliaCampoMinato = document.getElementById('griglia');
+const livelloDifficile = document.getElementById("terzoLivello");
+livelloDifficile.addEventListener("click",() => creagriglia(49, "size-tre"));
 
-const elementi = () => {
-    const node = document.createElement('div')
-    node.className = 'square';
-    return node;
-}
 
-const tasto = document.getElementById('griglia');
+function creagriglia(size, position){
 
-for (let i = 1; i < 49; i++){
-    const divElement = elementi();
+    const grigliaEl = document.getElementById("griglia");
+    grigliaEl.innerHTML = ''; 
+    grigliaEl.className = position ;
+    for (let i = 0; i < size; i++){
 
-    divElement.addEventListener('click',
+    const divEl = document.createElement("div");
+    divEl.className = "square";
 
-    function(){
-        console.log(this);
-        this.classList.add("clicked");
+    divEl.addEventListener("click", () => divEl.style.backgroundColor = "rgb(126, 194, 231)");
+    
+    grigliaEl.append(divEl);
+    
     }
-    )
-    grigliaCampoMinato.append(divElement);
+    
 }
+
